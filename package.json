@@ -1,0 +1,20 @@
+{
+  "name": "garden-shop",
+  "version": "1.0.0",
+  "description": "Coffee Shop",
+  "main": "./",
+  "scripts": {
+    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "db": "concurrently \"npm run db:migrate\" \"npm run db:seed\"",
+    "client": "npm run start --prefix frontend",
+    "server": "npm run start --prefix backend",
+    "db:migrate": "npm run db:migrate:up --prefix backend",
+    "db:seed": "npm run db:seed:up --prefix backend"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.4.0",
+    "cross-env": "^7.0.3"
+  }
+}
