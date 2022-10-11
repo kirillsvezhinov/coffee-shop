@@ -6,7 +6,7 @@ const {
 	nutrition: Nutrition
 } = require("../models");
 
-class ProductServices {
+class ProductService {
 	async getProductInfo(key, value) {
 		const productInfo = await Product.findOne({
 			where: {
@@ -22,4 +22,4 @@ class ProductServices {
 	}
 }
 
-module.exports = new ProductServices();
+module.exports = new ProductService();

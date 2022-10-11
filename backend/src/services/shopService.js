@@ -1,6 +1,6 @@
 const {shop: Shop, category: Category, product: Product} = require("../models");
 
-class ShopServices {
+class ShopService {
     async getAllShops() {
         const shops = await Shop.findAll({
             include: {
@@ -76,4 +76,4 @@ class ShopServices {
     }
 }
 
-module.exports = new ShopServices();
+module.exports = new ShopService();

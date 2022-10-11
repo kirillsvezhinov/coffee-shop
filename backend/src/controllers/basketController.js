@@ -1,4 +1,4 @@
-const basketServices = require("../services/basketServices");
+const basketServices = require("../services/basketService");
 
 class BasketController {
 	async getBasket(req, res) {

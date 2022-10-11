@@ -1,4 +1,4 @@
-const shopServices = require("../services/shopServices");
+const shopServices = require("../services/shopService");
 
 class ShopController {
 	async getShops(req, res) {

@@ -7,7 +7,7 @@ const {
 	addons: Addons
 } = require("../models");
 
-class BasketServices {
+class BasketService {
 	async createUserBasket(userId, shop) {
 		return await Basket.create({
 			userId,
@@ -152,4 +152,4 @@ class BasketServices {
 	}
 }
 
-module.exports = new BasketServices();
+module.exports = new BasketService();
