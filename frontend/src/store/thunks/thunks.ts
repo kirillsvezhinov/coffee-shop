@@ -2,19 +2,23 @@ import { Dispatch } from "react";
 
 import instance from "../../api/instance";
 import { IBasketProductPOST } from "../../types/basketTypes";
+import { IOrder } from "../../types/orderTypes";
 import {
-    addBasketProduct, deleteBasketProduct,
+    addBasketProduct, addOrder, deleteBasketProduct,
     setBasketId,
     setBasketProducts,
     setBasketShop,
-    setCategories,
+    setCategories, setOrders,
     setProduct,
     setShopList, updateBasketProduct
 } from "../actions/actions";
 import {
     IBasketDispatch,
     IBasketProductDispatch,
-    ICategoryDispatch, IDeleteProductInBasket,
+    ICategoryDispatch, 
+    IDeleteProductInBasket,
+    IOrderDispatch,
+    IOrdersDispatch,
     IProductDispatch,
     IShopDispatch
 } from "./types";
@@ -109,12 +113,12 @@ export function addProductToBasket(id: number, shop: string, product: IBasketPro
     };
 }
 
-export function deleteAllBasketProducts(basketId: number) {
+export function deleteAllBasketProducts() {
     return async function (dispatch: Dispatch<IBasketDispatch>) {
         await instance
-            .post("/api/basket/delete-all", { basketId })
+            .get("/api/basket/delete-all")
             .then((resp) => {
-                const { status, data } = resp.data;
+                const { status } = resp.data;
 
                 if (status) dispatch(setBasketProducts([]));
             })
@@ -162,6 +166,39 @@ export function decProductInBasket(basketProductId: number) {
                 const { status, data } = resp.data;
 
                 if (status) dispatch(updateBasketProduct(data));
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+}
+
+export function getOrders() {
+    return async function (dispatch: Dispatch<IOrdersDispatch>) {
+        await instance
+            .get("/api/order")
+            .then((resp) => {
+                const { status, data } = resp.data;
+
+                if (status) dispatch(setOrders(data));
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+}
+
+export function sendOrder(order: IOrder) {
+    return async function (dispatch: Dispatch<IOrderDispatch>) {
+        await instance
+            .post("/api/order", order)
+            .then((resp) => {
+                const { status, data } = resp.data;
+
+                if (status) {
+                    dispatch(addOrder(data));
+                    dispatch(setBasketProducts([]));
+                }
             })
             .catch(e => {
                 console.log(e);

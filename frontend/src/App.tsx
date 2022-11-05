@@ -8,7 +8,7 @@ import Registration from "./pages/registration/Registration";
 import Loader from "./shared/loader";
 import { setActiveCategory, setActiveProduct, setActiveShop } from "./store/actions/actions";
 import { useAppDispatch } from "./store/store";
-import { getBasket, getShopList } from "./store/thunks/thunks";
+import { getBasket, getOrders, getShopList } from "./store/thunks/thunks";
 import { GlobalStyle } from "./styles/global";
 const ShopList = React.lazy(() => import("./pages/shopList/ShopList"));
 const Catalog = React.lazy(() => import("./pages/catalog/Catalog"));
@@ -73,9 +73,8 @@ const App: React.FC = () => {
         }
         
         dispatch(getBasket());
+        dispatch(getOrders());
     }, []);
-    
-    console.log(token);
     
     return (
         <>
@@ -83,7 +82,7 @@ const App: React.FC = () => {
             <MainContainer>
                 <BrowserRouter>
                     <Suspense fallback={<Loader />}>
-                        {token ? components.shop : components.auth}
+                        {components.shop}
                     </Suspense>
                 </BrowserRouter>
             </MainContainer>

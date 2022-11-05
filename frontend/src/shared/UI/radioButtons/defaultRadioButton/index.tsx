@@ -5,6 +5,7 @@ import { IDefaultReadioButton } from "./types";
 
 const DefaultRadioButton: React.FC<IDefaultReadioButton> = ({
     title,
+    value,
     name,
     onChange,
     isChecked,
@@ -24,6 +25,7 @@ const DefaultRadioButton: React.FC<IDefaultReadioButton> = ({
             <Input
                 type="radio"
                 name={name}
+                value={value}
                 disabled={isDisabled}
                 checked={isChecked}
                 onChange={onChange}

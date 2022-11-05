@@ -1,5 +1,6 @@
 import { IBasket } from "../../types/basketTypes";
 import { ICategory } from "../../types/catalogTypes";
+import { IOrder } from "../../types/orderTypes";
 import {
     ICheckedModifications,
     IProductDetail,
@@ -25,4 +26,8 @@ interface IProductState {
     activeMode: TMode;
 }
 
-export { ICatalogState, IProductState, IShopState };
+interface IOrderState {
+    orders: IOrder[];
+}
+
+export { ICatalogState, IOrderState,IProductState, IShopState };

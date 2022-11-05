@@ -51,7 +51,7 @@ class BasketService {
 		basket.shop = data.shop;
 		await basket.save();
 		
-		await this.deleteAllBasketProducts(data.product.basketId);
+		await this.deleteAllBasketProducts(1);
 		return await this.addProduct(data);
 	}
 
@@ -81,12 +81,13 @@ class BasketService {
 		});
 	}
 
-	async deleteAllBasketProducts(basketId) {
+	async deleteAllBasketProducts(userId) {
+		const basket = await this.getBasketByUserId(userId);
 		const deletedBasketProducts = await BasketProduct.destroy({
-			where: {basketId},
+			where: {basketId: basket.id},
 		});
 		
-		return basketId;
+		return userId;
 	}
 
 	async deleteBasketProduct(basketProductId) {

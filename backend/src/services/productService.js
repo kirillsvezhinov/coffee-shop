@@ -1,8 +1,8 @@
 const {
-	product: Product, 
-	product_info: ProductInfo, 
-	addons: Addons, 
-	option: Option, 
+	product: Product,
+	product_info: ProductInfo,
+	addons: Addons,
+	option: Option,
 	nutrition: Nutrition
 } = require("../models");
 

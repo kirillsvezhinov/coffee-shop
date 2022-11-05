@@ -1,4 +1,5 @@
 import { COLORS } from "../styles/vars";
+import { PLACE_ID, READY_ID } from "../types/orderTypes";
 import { IModeStyle } from "../types/productDetailTypes";
 
 const RUB = "₽";
@@ -24,30 +25,30 @@ const MOBILE_SCREEN_SIZE = {
 
 const BASKET_ORDER_PLACE = [
     {
-        id: "toGo",
+        id: PLACE_ID.toGo,
         title: "С собой",
     },
     {
-        id: "inCoffeeShop",
+        id: PLACE_ID.inCoffeeShop,
         title: "В кофейне",
     },
 ];
 
 const BASKET_PREPARING = [
     {
-        id: 5,
+        id: READY_ID["5min"],
         title: "5 минут",
     },
     {
-        id: 10,
+        id: READY_ID["10min"],
         title: "10 минут",
     },
     {
-        id: 15,
+        id: READY_ID["15min"],
         title: "15 минут",
     },
     {
-        id: 20,
+        id: READY_ID["20min"],
         title: "20 минут",
     },
 ];

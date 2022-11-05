@@ -2,6 +2,7 @@ import { createAction } from "@reduxjs/toolkit";
 
 import { IBasketProduct } from "../../types/basketTypes";
 import { ICategory } from "../../types/catalogTypes";
+import { IOrder } from "../../types/orderTypes";
 import { IProductDetail, TMode } from "../../types/productDetailTypes";
 import { IShop } from "../../types/shopListTypes";
 import constants from "../constants";
@@ -22,6 +23,8 @@ const {
     UPDATE_BASKET_PRODUCT,
     DELETE_BASKET_PRODUCT,
     ADD_BASKET_PRODUCT,
+    SET_ORDERS,
+    ADD_ORDER
 } = constants;
 
 export const setShopList = createAction<IShop[]>(SET_SHOP_LIST);
@@ -42,3 +45,6 @@ export const setBasketProducts = createAction<IBasketProduct[]>(SET_BASKET_PRODU
 export const updateBasketProduct = createAction<IBasketProduct>(UPDATE_BASKET_PRODUCT);
 export const addBasketProduct = createAction<IBasketProduct>(ADD_BASKET_PRODUCT);
 export const deleteBasketProduct = createAction<number>(DELETE_BASKET_PRODUCT);
+
+export const setOrders = createAction<IOrder[]>(SET_ORDERS);
+export const addOrder = createAction<IOrder>(ADD_ORDER);

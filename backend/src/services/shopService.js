@@ -11,6 +11,12 @@ class ShopService {
         return await this.getFormatShopList(shops);
     }
     
+    async getShopBySlug(slug) {
+        return await Shop.findOne({
+            where: {slug}
+        });
+    }
+    
     async getShopCategories(shop) {
         const categories = await Shop.findOne({
             where: { slug: shop },

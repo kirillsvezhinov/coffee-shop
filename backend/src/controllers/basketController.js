@@ -55,8 +55,7 @@ class BasketController {
 
 	async deleteAllProducts(req, res) {
 		try {
-			const {basketId} = req.body;
-			const deletedBasketProducts = await basketServices.deleteAllBasketProducts(basketId);
+			const deletedBasketProducts = await basketServices.deleteAllBasketProducts();
 
 			res.status(200).json({
 				status: true,

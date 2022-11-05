@@ -1,7 +1,9 @@
 type TCheckboxType = "circle" | "square";
 
 interface ICheckboxCircle {
+    value: string | number;
     title: string;
+    name: string;
     type?: TCheckboxType;
     onChange: () => void;
     isDisabled?: boolean;

@@ -11,6 +11,8 @@ const AccessRights: React.FC = () => {
         <AccessRightsStyled>
             <CheckboxDefault
                 title={"Согласен с правилами оплаты"}
+                name={"rights"}
+                value={currentAccessRights.toString()}
                 type={"square"}
                 onChange={() => setAccessRights(!currentAccessRights)}
                 isChecked={currentAccessRights}

@@ -10,6 +10,7 @@ const Comment = () => {
         <SectionBlock>
             <TitleText>Комментарий</TitleText>
             <DefaultInput
+                name={"comment"}
                 value={comment}
                 onChange={(comment) => setComment(comment)}
                 placeholder={"Вселенную в кофе"}

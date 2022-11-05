@@ -5,10 +5,11 @@ import { BASKET_PREPARING } from "../../../helpers/constants";
 import DefaultRadioButton from "../../../shared/UI/radioButtons/defaultRadioButton";
 import { SectionBlock, TitleText } from "../../../styles/global";
 import { COLORS } from "../../../styles/vars";
+import { READY_ID } from "../../../types/orderTypes";
 import { SwiperStyled } from "./styles";
 
 const Ready: React.FC = () => {
-    const [currentPrepareIn, setPrepareIn] = useState(5);
+    const [currentPrepareIn, setPrepareIn] = useState(READY_ID["5min"]);
 
     function renderRadioButtons() {
         return BASKET_PREPARING.map((prepareIn) => {
@@ -20,6 +21,7 @@ const Ready: React.FC = () => {
                     <DefaultRadioButton
                         title={title}
                         name={"ready"}
+                        value={id}
                         clr={COLORS["greenDark"]}
                         isChecked={isChecked}
                         onChange={() => setPrepareIn(id)}

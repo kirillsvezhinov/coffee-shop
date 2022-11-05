@@ -1,5 +1,6 @@
 interface IDefaultReadioButton {
     title: string;
+    value: string | number;
     name: string;
     onChange: () => void;
     isChecked: boolean;

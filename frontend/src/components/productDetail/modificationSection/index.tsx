@@ -49,6 +49,8 @@ const ModificationSection: React.FC<IModificationSection> = ({ title, data, chec
                 >
                     <CheckboxDefault
                         title={name}
+                        name={"modification"}
+                        value={id}
                         onChange={() => onChangeCheckbox(id)}
                         isDisabled={isDisabled(id)}
                         isChecked={isChecked(id)}

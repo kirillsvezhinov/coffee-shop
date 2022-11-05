@@ -1,6 +1,6 @@
 # запуск бд
 run:
-	docker-compose up -d postgres
+	docker-compose up -d
 
 # остановить контейнеры
 down:

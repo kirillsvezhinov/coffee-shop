@@ -1,5 +1,6 @@
 import { IBasket, IBasketProduct } from "../../types/basketTypes";
 import { ICategory, IProduct } from "../../types/catalogTypes";
+import { IOrder } from "../../types/orderTypes";
 import { IShop } from "../../types/shopListTypes";
 
 interface IDispatch {
@@ -30,11 +31,21 @@ interface IDeleteProductInBasket extends IDispatch {
     payload: number;
 }
 
+interface IOrderDispatch extends IDispatch {
+    payload: IOrder | IBasketProduct[];
+}
+
+interface IOrdersDispatch extends IDispatch {
+    payload: IOrder[];
+}
+
 export { 
     IBasketDispatch, 
     IBasketProductDispatch, 
     ICategoryDispatch, 
     IDeleteProductInBasket,
+    IOrderDispatch,
+    IOrdersDispatch,
     IProductDispatch, 
     IShopDispatch 
 };

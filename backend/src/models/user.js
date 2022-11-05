@@ -6,8 +6,9 @@ const {
 
 module.exports = (sequelize, { STRING }) => {
 	class user extends Model {
-		static associate({basket}) {
+		static associate({basket, order}) {
 			this.hasOne(basket);
+			this.hasMany(order);
 		}
 	}
 

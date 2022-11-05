@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import {
     basketReducer,
-    catalogReducer,
+    catalogReducer, orderReducer,
     productReducer,
     shopListReducer,
 } from "./reducers/reducers";
@@ -14,6 +14,7 @@ const store = configureStore({
         catalog: catalogReducer,
         productInfo: productReducer,
         basket: basketReducer,
+        order: orderReducer,
     },
 });
 

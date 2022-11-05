@@ -1,12 +1,13 @@
 import React from "react";
 
-import { COLORS } from "../../../../styles/vars";
 import Icon from "../../../icon";
 import { FakeInput, IconWrapper, Input, Label } from "./styles";
 import { ICheckboxCircle } from "./types";
 
 const CheckboxDefault: React.FC<ICheckboxCircle> = ({
+    value,
     title,
+    name,
     type,
     labelClr,
     onChange,
@@ -30,10 +31,12 @@ const CheckboxDefault: React.FC<ICheckboxCircle> = ({
                 )}
             </FakeInput>
             <Input
+                name={name}
                 type="checkbox"
                 disabled={isDisabled}
                 checked={isChecked}
                 onChange={onChange}
+                value={value}
             />
             {title}
         </Label>

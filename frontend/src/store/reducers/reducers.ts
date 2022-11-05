@@ -3,6 +3,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import { IBasket } from "../../types/basketTypes";
 import {
     addBasketProduct,
+    addOrder,
     deleteBasketProduct,
     setActiveCategory,
     setActiveMode,
@@ -13,12 +14,13 @@ import {
     setBasketShop,
     setCategories,
     setModifications,
-    setOpenShops,
+    setOpenShops, 
+    setOrders,
     setProduct,
     setShopList,
     updateBasketProduct,
 } from "../actions/actions";
-import { ICatalogState, IProductState, IShopState } from "./types";
+import { ICatalogState, IOrderState, IProductState, IShopState } from "./types";
 
 const shopState: IShopState = {
     shopList: [],
@@ -45,6 +47,10 @@ const basketState: IBasket = {
     id: null,
     shop: "",
     products: [],
+};
+
+const orderState: IOrderState = {
+    orders: [],
 };
 
 const shopListReducer = createReducer(shopState, (builder) => {
@@ -115,4 +121,14 @@ const basketReducer = createReducer(basketState, (build) => {
         });
 });
 
-export { basketReducer, catalogReducer, productReducer, shopListReducer };
+const orderReducer = createReducer(orderState, (build) => {
+    build
+        .addCase(setOrders, (state, action) => {
+            state.orders = action.payload;
+        })
+        .addCase(addOrder, (state, action) => {
+            state.orders = [...state.orders, action.payload];
+        });
+});
+
+export { basketReducer, catalogReducer, orderReducer, productReducer, shopListReducer };

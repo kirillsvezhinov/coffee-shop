@@ -10,7 +10,6 @@ import { List, TitleTextRed, Top } from "./styles";
 
 const BasketList: React.FC = () => {
     const dispatch = useAppDispatch();
-    const basketId = useSelector(({ basket }) => basket.id);
     const basketProducts = useSelector(({ basket }) => basket.products);
     
     function renderBasketList() {
@@ -35,7 +34,7 @@ const BasketList: React.FC = () => {
         <SectionBlock>
             <Top>
                 <TitleText>Выбрано</TitleText>
-                <button onClick={() => dispatch(deleteAllBasketProducts(basketId))} type={"button"}>
+                <button onClick={() => dispatch(deleteAllBasketProducts())} type={"button"}>
                     <TitleTextRed>Убрать всё</TitleTextRed>
                 </button>
             </Top>
