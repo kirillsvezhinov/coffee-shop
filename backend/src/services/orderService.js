@@ -65,6 +65,7 @@ class OrderService {
 	}
 
 	async createUserOrder(data) {
+		console.log(data);
 		const {id, shop, place, ready, comment} = await this.createOrder(data);
 		for (const product of data.products) {
 			try {
@@ -123,8 +124,8 @@ class OrderService {
 		}, "");
 
 		return `Адресс: ${currentShop.address}
-		Тип заказа: ${currentPlace.title}
-		Готовность: ${currentReady.title}
+		Тип заказа: ${currentPlace?.title ?? '' }
+		Готовность: ${currentReady?.title ?? ''}
 		Заказ: ${currentProducts}
 		Комментарий: ${comment}`;
 	}
